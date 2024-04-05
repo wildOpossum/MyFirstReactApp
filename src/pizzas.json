@@ -1,0 +1,81 @@
+[
+	{
+	  "id": 0,
+	  "imageUrl": "./pizza-menu/Capricciosa.png",
+	  "title": "Capricciosa",	  
+	  "sizes": [22, 28, 33],
+	  "price": 8.35,
+	  "subscribe": "House made Pizza Sauce, Mozzarella, Italian Ham, Beef Pepperoni, Sautéed Mushrooms & Sautéed Artichokes",
+	  "category": "meat",
+	  "rating": 4
+	},
+	{
+		"id": 1,
+		"imageUrl": "./pizza-menu/venezia.png",
+		"title": "Venezia",	  
+		"sizes": [22, 28, 33],
+		"price": 8.35,
+		"subscribe": "Mozzarella, Homemade Ricotta Cheese, Fresh Oregano, Roasted Cherry Tomatoes, Fresh Basil",
+		"category": "meat",
+		"rating": 5
+	  },
+	  {
+		"id": 2,
+		"imageUrl": "./pizza-menu/meat.png",
+		"title": "Meat",	  
+		"sizes": [22, 28, 33],
+		"price": 9.35,
+		"subscribe": "House Made Pizza Sauce, Mozzarella, Italian Ham (Prosciutto Cotto), Beef Pepperoni, House made Italian Sausage, Homemade Meatballs",
+		"category": "meat",
+		"rating": 5
+	  },
+	  {
+		"id": 3,
+		"imageUrl": "./pizza-menu/cheese.png",
+		"title": "Cheese",	  
+		"sizes": [22, 28, 33],
+		"price": 8.35,
+		"subscribe": "Ricotta Cheese, Mozarella, House Made Pizza Sauce.",
+		"category": "vegetarian",
+		"rating": 4
+	  },
+	  {
+		"id": 4,
+		"imageUrl": "./pizza-menu/Argentina.png",
+		"title": "Argentina",	  
+		"sizes": [22, 28, 33],
+		"price": 8.35,
+		"subscribe": "Crushed tomato sauce, goat cheese, mozzarella, prosciutto, garlic and crushed red pepper baked in our wood-fired oven and topped with fresh spinach",
+		"category": "meat",
+		"rating": 3
+	  },
+	  {
+		"id": 5,
+		"imageUrl": "./pizza-menu/mushroom.png",
+		"title": "Mushroom",	  
+		"price": 8.35,
+		"subscribe": "House made Pizza Sauce, Mozzarella, Italian Ham, Beef Pepperoni, Sautéed Mushrooms & Sautéed Artichokes",
+		"category": "mushrooms",
+		"rating": 4
+	  },
+	  {
+		"id": 6,
+		"imageUrl": "./pizza-menu/Tomato.png",
+		"title": "Tomato",	  
+		"sizes": [22, 28, 33],
+		"price": 7.35,
+		"subscribe": "House made Pizza Sauce, Mozzarella, Italian Ham, Beef Pepperoni, Sautéed Mushrooms & Sautéed Artichokes",
+		"category": "vegetarian",
+		"rating": 3
+	  },
+	  {
+		"id": 7,
+		"imageUrl": "./pizza-menu/italianx2.png",
+		"title": "Pizza Gia",	  
+		"sizes": [22, 28, 33],
+		"price": 8.35,
+		"subscribe": "House made Pizza Sauce, Mozzarella, Italian Ham, Beef Pepperoni, Sautéed Mushrooms & Sautéed Artichokes",
+		"category": "sea products",
+		"rating": 5
+	  }	
+  ]
