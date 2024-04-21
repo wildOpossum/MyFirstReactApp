@@ -1,7 +1,8 @@
-[
+{
+"pizzas": [
 	{
 	  "id": 0,
-	  "imageUrl": "./pizza-menu/Capricciosa.png",
+	  "imageUrl": "/pizza-menu/Capricciosa.png",
 	  "title": "Capricciosa",	  
 	  "sizes": [22, 28, 33],
 	  "price": 8.35,
@@ -11,7 +12,7 @@
 	},
 	{
 		"id": 1,
-		"imageUrl": "./pizza-menu/venezia.png",
+		"imageUrl": "/pizza-menu/venezia.png",
 		"title": "Venezia",	  
 		"sizes": [22, 28, 33],
 		"price": 8.35,
@@ -21,7 +22,7 @@
 	  },
 	  {
 		"id": 2,
-		"imageUrl": "./pizza-menu/meat.png",
+		"imageUrl": "/pizza-menu/meat.png",
 		"title": "Meat",	  
 		"sizes": [22, 28, 33],
 		"price": 9.35,
@@ -31,7 +32,7 @@
 	  },
 	  {
 		"id": 3,
-		"imageUrl": "./pizza-menu/cheese.png",
+		"imageUrl": "/pizza-menu/cheese.png",
 		"title": "Cheese",	  
 		"sizes": [22, 28, 33],
 		"price": 8.35,
@@ -41,7 +42,7 @@
 	  },
 	  {
 		"id": 4,
-		"imageUrl": "./pizza-menu/Argentina.png",
+		"imageUrl": "/pizza-menu/Argentina.png",
 		"title": "Argentina",	  
 		"sizes": [22, 28, 33],
 		"price": 8.35,
@@ -51,7 +52,7 @@
 	  },
 	  {
 		"id": 5,
-		"imageUrl": "./pizza-menu/mushroom.png",
+		"imageUrl": "/pizza-menu/mushroom.png",
 		"title": "Mushroom",	  
 		"price": 8.35,
 		"subscribe": "House made Pizza Sauce, Mozzarella, Italian Ham, Beef Pepperoni, Sautéed Mushrooms & Sautéed Artichokes",
@@ -60,7 +61,7 @@
 	  },
 	  {
 		"id": 6,
-		"imageUrl": "./pizza-menu/Tomato.png",
+		"imageUrl": "/pizza-menu/Tomato.png",
 		"title": "Tomato",	  
 		"sizes": [22, 28, 33],
 		"price": 7.35,
@@ -70,7 +71,7 @@
 	  },
 	  {
 		"id": 7,
-		"imageUrl": "./pizza-menu/italianx2.png",
+		"imageUrl": "/pizza-menu/italianx2.png",
 		"title": "Pizza Gia",	  
 		"sizes": [22, 28, 33],
 		"price": 8.35,
@@ -79,3 +80,4 @@
 		"rating": 5
 	  }	
   ]
+}

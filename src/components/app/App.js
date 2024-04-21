@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import MainSection from "../mainSection/MainSection";
-import PizzaMenu from "../pizzaMenu/PizzaMenu";
+import Home from "../../pages/home/Home";
 import Modal from "../modal/Modal";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Header/>
       <main className="page">
         <MainSection/>
-        <PizzaMenu/>
+        <Home/>
       </main>
       <Footer/>
       <Modal/>
