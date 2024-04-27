@@ -76,8 +76,30 @@
 		"sizes": [22, 28, 33],
 		"price": 8.35,
 		"subscribe": "House made Pizza Sauce, Mozzarella, Italian Ham, Beef Pepperoni, Sautéed Mushrooms & Sautéed Artichokes",
-		"category": "sea products",
+		"category": "sea",
 		"rating": 5
 	  }	
+  ],
+  "categories": [
+    {
+      "name": "all",
+      "label": "Show All"      
+    },
+    {
+      "name": "meat",
+      "label": "Meat"      
+    },
+    {
+      "name": "vegetarian",
+      "label": "Vegetarian"
+    },
+    {
+      "name": "sea",
+      "label": "Sea products"
+    },
+    {
+      "name": "mushrooms",
+      "label": "Mushroom"      
+    }
   ]
 }
