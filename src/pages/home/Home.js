@@ -1,27 +1,33 @@
 import React from "react";
 import { useEffect } from 'react';
-import { pizzasFetching, pizzasFetched, pizzasFetchingError } from '../../redux/slice/pizzaSlice';
-import { useHttp } from '../../hooks/httpHooks';
+import { fetchPizzas } from '../../redux/slice/pizzaSlice';
+import { createSelector } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PizzaMenu from "../../components/pizzaMenu/PizzaMenu";
 import Spinner from "../../components/spinner/Spinner";
 import ErrorMessage from "../../components/Error/ErrorMessage";
+import Categories from "../../components/categories/Categories";
 
 const Home = () => {
-	const {request} = useHttp();
+	const filteredCatSelector = createSelector(
+        (state) => state.categories.activeCategories,
+        (state) => state.pizzas.pizzas,
+        (categories, pizzas) => {
+            if (categories === 'all') {
+                return pizzas;
+            } else {
+                return pizzas.filter(item => item.category === categories);
+            }
+        }
+    );
 	const dispatch = useDispatch();
-	const  {items, pizzasLoadingStatus} = useSelector(state => state.pizzas);	
+	const pizzas = useSelector(filteredCatSelector);
+	const  {pizzasLoadingStatus} = useSelector(state => state.pizzas.pizzasLoadingStatus);	
 
-	const fetchPizzas = () => {
-			
-		request("http://localhost:3001/pizzas")
-			.then(data => dispatch(pizzasFetched(data)))
-			.catch(() => dispatch(pizzasFetchingError()))			
-	}
-	useEffect(() => (
-		fetchPizzas()
-	),[]);	
+	useEffect(() => {
+		dispatch(fetchPizzas());
+	},[]);	
 
 	if (pizzasLoadingStatus === 'loading') {
 		return <Spinner/>
@@ -29,11 +35,11 @@ const Home = () => {
 		return <ErrorMessage/>
 	}
 
-	const pizzaMenu = items.map(obj => {
+	const pizzaMenu = pizzas.map(obj => {
 		return (<PizzaMenu key={obj.id} {...obj}	/>
 	)
 	})
-	console.log(pizzasLoadingStatus);
+	
 	return(
 		<section className="page__pizza-menu pizza-menu">
 			<div className="pizza-menu__container">
@@ -77,13 +83,7 @@ const Home = () => {
 					</div>
 				</div>
 				<div className="pizza-menu__items items-pizza">
-					<nav className="items-pizza__navigation">
-						<button data-pizza-type="" className="items-pizza__type active">Show All</button>
-						<button data-pizza-type="mt" className="items-pizza__type button ">Meat</button>
-						<button data-pizza-type="vg" className="items-pizza__type button ">Vegetarian</button>
-						<button data-pizza-type="sp" className="items-pizza__type button ">Sea products</button>
-						<button data-pizza-type="mr" className="items-pizza__type button ">Mushroom</button>
-					</nav>
+					<Categories/>
 					{
 						<div className="items-pizza__body">
 								{pizzaMenu}
