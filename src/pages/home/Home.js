@@ -8,22 +8,56 @@ import PizzaMenu from "../../components/pizzaMenu/PizzaMenu";
 import Spinner from "../../components/spinner/Spinner";
 import ErrorMessage from "../../components/Error/ErrorMessage";
 import Categories from "../../components/categories/Categories";
+import Sort from "../../components/sort/Sort";
 
 const Home = () => {
 	const filteredCatSelector = createSelector(
         (state) => state.categories.activeCategories,
         (state) => state.pizzas.pizzas,
-        (categories, pizzas) => {
+		(state) => state.sort.sort,		
+        (categories, pizzas, sort) => {
+			if(sort.sortProperty === 'rating'){				
+				const sortArr = pizzas.map((item) => item);				
+				return sortPizzas(sortArr, 'rating', true);
+			}			
+			if(sort.sortProperty === '-price'){				
+				const sortArr = pizzas.map((item) => item);
+				return sortPizzas(sortArr, 'price', false);
+			}
+			if(sort.sortProperty === 'price'){				
+				const sortArr = pizzas.map((item) => item);
+				return sortPizzas(sortArr, 'price', true);
+			}
+			if(sort.sortProperty === '-title'){				
+				const sortArr = pizzas.map((item) => item);
+				return sortPizzas(sortArr, 'title', false);
+			}
+			if(sort.sortProperty === 'title'){				
+				const sortArr = pizzas.map((item) => item);
+				return sortPizzas(sortArr, 'title', true);
+			}
+
             if (categories === 'all') {
                 return pizzas;
             } else {
                 return pizzas.filter(item => item.category === categories);
-            }
+            }		
         }
+		
     );
 	const dispatch = useDispatch();
 	const pizzas = useSelector(filteredCatSelector);
 	const  {pizzasLoadingStatus} = useSelector(state => state.pizzas.pizzasLoadingStatus);	
+
+	function sortPizzas(array, prop, dir = false){
+		const res = array.sort((a, b) => {
+			let diff = a[prop] < b[prop];
+
+			if(dir === true) diff = a[prop] > b[prop]
+			if (diff === true) return -1
+		})
+		return res;
+	}
 
 	useEffect(() => {
 		dispatch(fetchPizzas());
@@ -56,31 +90,7 @@ const Home = () => {
 							</button>					
 						</form>
 					</div>
-					<div className="pizza-menu__sorting sorting">
-						<div className="sorting__select ">
-							<span>Sort:</span>
-							<span className="sorting__toggle">by popularity</span>
-							<div className="sorting__popup popup-sorting">
-								<ul>
-									<li>
-										by popularity
-									</li>
-									<li>
-										Alphabetical ↑
-									</li>
-									<li>
-										Alphabetical ↓
-									</li>
-									<li>
-										price: Low to High ↑
-									</li>
-									<li>
-										price: High to Low ↓
-									</li>							
-								</ul>
-							</div>
-						</div>
-					</div>
+					<Sort/>
 				</div>
 				<div className="pizza-menu__items items-pizza">
 					<Categories/>
