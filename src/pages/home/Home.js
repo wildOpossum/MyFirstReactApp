@@ -16,31 +16,34 @@ const Home = () => {
         (state) => state.pizzas.pizzas,
 		(state) => state.sort.sort,		
         (categories, pizzas, sort) => {
-			if(sort.sortProperty === 'rating'){				
-				const sortArr = pizzas.map((item) => item);				
-				return sortPizzas(sortArr, 'rating', true);
-			}			
-			if(sort.sortProperty === '-price'){				
-				const sortArr = pizzas.map((item) => item);
-				return sortPizzas(sortArr, 'price', false);
+			const filter = () => {
+				if(sort.sortProperty === 'rating'){				
+					const sortArr = pizzas.map((item) => item);				
+					return sortPizzas(sortArr, 'rating', true);
+				}			
+				if(sort.sortProperty === '-price'){				
+					const sortArr = pizzas.map((item) => item);
+					return sortPizzas(sortArr, 'price', false);
+				}
+				if(sort.sortProperty === 'price'){				
+					const sortArr = pizzas.map((item) => item);
+					return sortPizzas(sortArr, 'price', true);
+				}
+				if(sort.sortProperty === '-title'){				
+					const sortArr = pizzas.map((item) => item);
+					return sortPizzas(sortArr, 'title', false);
+				}
+				if(sort.sortProperty === 'title'){				
+					const sortArr = pizzas.map((item) => item);
+					return sortPizzas(sortArr, 'title', true);
+				}
 			}
-			if(sort.sortProperty === 'price'){				
-				const sortArr = pizzas.map((item) => item);
-				return sortPizzas(sortArr, 'price', true);
-			}
-			if(sort.sortProperty === '-title'){				
-				const sortArr = pizzas.map((item) => item);
-				return sortPizzas(sortArr, 'title', false);
-			}
-			if(sort.sortProperty === 'title'){				
-				const sortArr = pizzas.map((item) => item);
-				return sortPizzas(sortArr, 'title', true);
-			}
+			const res = filter();
 
             if (categories === 'all') {
-                return pizzas;
+                return res;
             } else {
-                return pizzas.filter(item => item.category === categories);
+				return res.filter(item => item.category === categories);			               
             }		
         }
 		
