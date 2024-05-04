@@ -345,7 +345,7 @@
 		}
 	}
 	&__btn{
-		opacity: 0;
+		opacity: 1;
 		height: 2.5625rem;
 		width: 2.5625rem;
 		position: absolute;
@@ -413,7 +413,7 @@
 }
 .sorting {
 	border: 0.0625rem solid #ff6432;
-	padding: 0.625rem 2.1875rem;
+	padding: 0.625rem 2.1875rem 0.625rem 30px;
 	border-radius: 0.625rem;	
 
 	// .sorting__select
@@ -450,7 +450,7 @@
 	// .sorting__popup
 
 	&__popup {
-		display: none;	
+		
 		position: absolute;		
 		padding: 0 1.25rem;
 		width: 17.125rem;

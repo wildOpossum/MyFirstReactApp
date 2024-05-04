@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+	searchValue: '',
 	sort: {
 		name: 'by popularity', 
 		sortProperty: 'rating'
@@ -12,9 +13,12 @@ const sortSlice = createSlice({
 	initialState,
 	reducers: {
 		setSort: (state, action) => {
-			state.sort = action.payload
-			console.log(state.sort);
-		},
+			state.sort = action.payload;			
+		},		
+		setSearch: (state, action) => {
+			state.searchValue = action.payload;
+			console.log(state.searchValue);
+		}
 	}
 });
 
@@ -22,4 +26,4 @@ const {actions, reducer} = sortSlice;
 
 export default reducer;
 
-export const {setSort} = actions;
+export const {setSort, setSearch} = actions;

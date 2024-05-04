@@ -1,12 +1,9 @@
-import { useHttp } from "../../hooks/httpHooks";
 import { useEffect } from 'react';
-import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchCategories, categoriesChanged } from "../../redux/slice/categoriesSlice";
 
 const Categories = () => {
-	const [activeCat, setActiveCat] = useState(0);	
 	const {categories, categoriesLoadingStatus, activeCategories} = useSelector(state => state.categories);
 	const dispatch = useDispatch();
 

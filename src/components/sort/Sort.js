@@ -5,7 +5,7 @@ import { setSort } from "../../redux/slice/sortSlice";
 export const sortList = [
 	{name: 'by popularity', sortProperty: 'rating'}, 
 	{name: 'price: Low to High ↑', sortProperty: '-price'},
-	{name: 'price: Low to High ↓', sortProperty: 'price'}, 
+	{name: 'price: High to Low ↓', sortProperty: 'price'}, 
 	{name: 'Alphabetical ↑', sortProperty: '-title'},
 	{name: 'Alphabetical ↓', sortProperty: 'title'},
 ];
@@ -14,7 +14,7 @@ const Sort = () => {
 	const dispatch = useDispatch();
 	const sort = useSelector(state => state.sort.sort);
 	const [openSort, setOpenSort] = useState();
-	const sortRef = useRef();	
+	const sortRef = useRef();		
 	
 	const onClickSort = (objSort) => {		
 		dispatch(setSort(objSort))
