@@ -10,6 +10,7 @@ import ErrorMessage from "../../components/Error/ErrorMessage";
 import Categories from "../../components/categories/Categories";
 import Sort from "../../components/sort/Sort";
 import Search from "../../components/search/Search";
+import MainSection from "../../components/mainSection/MainSection";
 
 const Home = () => {
 	const filteredCatSelector = createSelector(
@@ -42,8 +43,7 @@ const Home = () => {
 			}
 			const res = filters();
 
-			if(searchValue || searchValue !== ''){
-				console.log(searchValue);
+			if(searchValue || searchValue !== ''){				
 				const searchRes = res;
 				return searchRes.filter(item => {
 					if(item.title.toLowerCase().includes(searchValue.toLowerCase())){
@@ -94,6 +94,8 @@ const Home = () => {
 	})
 	
 	return(
+		<>
+		<MainSection/>
 		<section className="page__pizza-menu pizza-menu">
 			<div className="pizza-menu__container">
 				<h2 className="pizza-menu__title title">Menu</h2>
@@ -112,6 +114,7 @@ const Home = () => {
 				</div>
 			</div>
 		</section>
+		</>
 	)
 }
 

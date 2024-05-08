@@ -16,8 +16,7 @@ const sortSlice = createSlice({
 			state.sort = action.payload;			
 		},		
 		setSearch: (state, action) => {
-			state.searchValue = action.payload;
-			console.log(state.searchValue);
+			state.searchValue = action.payload;			
 		}
 	}
 });

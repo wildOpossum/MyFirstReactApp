@@ -1,4 +1,5 @@
 import './footer.scss';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return(
@@ -7,17 +8,17 @@ const Footer = () => {
 				<div className="footer__top footer-top">
 					<div className="footer-top__column footer-top__column-first">
 						<div className="footer-top__content">
-							<a href="#" className="footer-top__title ">pizzashop</a>
+							<Link to="/" className="footer-top__title ">pizzashop</Link>
 						</div>
 					</div>
 					<div className="footer-top__column">
 						<div className="footer-top__content content-footer-top">
 							<h2 className="content-footer-top__title">Home</h2>
 							<ul className="content-footer-top__list">
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">To Order</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">About us</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Events</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Menu</a></li>
+								<li className="content-footer-top__item"><Link to="cart" className="content-footer-top__link">To Order</Link></li>
+								<li className="content-footer-top__item"><Link to="abountUs" className="content-footer-top__link">About us</Link></li>
+								<li className="content-footer-top__item"><Link to="Events" className="content-footer-top__link">Events</Link></li>
+								<li className="content-footer-top__item"><Link to="menu" className="content-footer-top__link">Menu</Link></li>
 							</ul>
 						</div>
 					</div>
@@ -25,9 +26,9 @@ const Footer = () => {
 						<div className="footer-top__content content-footer-top">
 							<h2 className="content-footer-top__title">Events</h2>
 							<ul className="content-footer-top__list">
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">3 Pizza 1 Free Coffee</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">2 Pizza for 1 Price</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Kitchen Tour</a></li>					
+								<li className="content-footer-top__item"><Link to="3+1" className="content-footer-top__link">3 Pizza 1 Free Coffee</Link></li>
+								<li className="content-footer-top__item"><Link to="2+1" className="content-footer-top__link">2 Pizza for 1 Price</Link></li>
+								<li className="content-footer-top__item"><Link to="tour" className="content-footer-top__link">Kitchen Tour</Link></li>					
 							</ul>
 						</div>
 					</div>
@@ -35,10 +36,10 @@ const Footer = () => {
 						<div className="footer-top__content content-footer-top">
 							<h2 className="content-footer-top__title">Menu</h2>
 							<ul className="content-footer-top__list">
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Show All</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Seaproducts</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Vegan</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Meat</a></li>					
+								<li className="content-footer-top__item"><Link to="menu" className="content-footer-top__link">Show All</Link></li>
+								<li className="content-footer-top__item"><Link to="menu" className="content-footer-top__link">Seaproducts</Link></li>
+								<li className="content-footer-top__item"><Link to="menu" className="content-footer-top__link">Vegan</Link></li>
+								<li className="content-footer-top__item"><Link to="menu" className="content-footer-top__link">Meat</Link></li>					
 							</ul>
 						</div>
 					</div>
@@ -46,8 +47,8 @@ const Footer = () => {
 						<div className="footer-top__content content-footer-top">
 							<h2 className="content-footer-top__title">About Us</h2>
 							<ul className="content-footer-top__list">
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Our History</a></li>
-								<li className="content-footer-top__item"><a href="#" className="content-footer-top__link">Why We?</a></li>				
+								<li className="content-footer-top__item"><Link to="history" className="content-footer-top__link">Our History</Link></li>
+								<li className="content-footer-top__item"><Link to="whyMe" className="content-footer-top__link">Why We?</Link></li>				
 							</ul>
 						</div>
 					</div>
@@ -59,7 +60,7 @@ const Footer = () => {
 					<div className="footer-bottom__column">
 						<div className="footer-bottom social-footer">
 							<div className="social-footer__items">
-								<a href="" className="social-footer__item">									
+								<a href="https://www.instagram.com/" className="social-footer__item">									
 									<svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path fillRule="evenodd" clipRule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="url(#icon-grad)"/>
 										<path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="url(#icon-grad)"/>
@@ -72,7 +73,7 @@ const Footer = () => {
 										</defs>
 									</svg>
 								</a>
-								<a href="" className="social-footer__item">								
+								<a href="https://twitter.com/?lang=uk" className="social-footer__item">								
 									<svg fill="none" height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"  
 										viewBox="0 0 485 485" space="preserve">
 										<g>
@@ -94,7 +95,7 @@ const Footer = () => {
 										</defs>
 									</svg>
 								</a>
-								<a href="" className="social-footer__item">									
+								<a href="https://www.facebook.com/?locale=uk_UA" className="social-footer__item">									
 									<svg fill="none" width="50px" height="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 										<path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z" fill="url(#icon-grad-f)"/>
 										<defs>

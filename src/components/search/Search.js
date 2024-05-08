@@ -7,9 +7,6 @@ const Search = () => {
 	const dispatch = useDispatch();
 	const [value, setValue] = useState("");
 	const inputRef = useRef();
-	const dd = setSearch()
-
-	console.log(dd);
 
 	const onClickClear = () => {
 		setValue('');
