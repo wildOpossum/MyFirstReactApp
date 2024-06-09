@@ -1,22 +1,55 @@
 import './pizzaMenu.scss';
-
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { addProduct, decQuantity, removeProduct } from '../../redux/slice/cartSlice';
 
-const PizzaMenu = ({id, imageUrl, title, subscribe, sizes, price}) => {	
+const PizzaMenu = ({id, imageUrl, title, subscribe, sizes, price, count}) => {	
 	const [activeSize, setActiveSize] = useState(0);
+	const dispatch = useDispatch();
+
+	const quantity = useSelector((state) => {
+		const similarPizzas = state.cart.items?.filter(
+			(pizza) =>
+			pizza.title === title
+		);		
+		const totalQuantity = similarPizzas?.reduce(
+			(sum, pizza) => sum + pizza.count, 0
+		);
+		return totalQuantity;
+	});	
+		
+	const onClickDecQuntiti = () => {
+		dispatch(decQuantity({id, activeSize, sizes}));
+		if (activeSize === 0){
+			return dispatch(removeProduct({id, activeSize}));
+		}
+	}
+
+	const onClickAdd = () => {
+		const item = {
+			id,
+			title,
+			price,
+			imageUrl,			
+			size: sizes[activeSize],
+		};		
+		dispatch(addProduct(item));		
+	};
 
 	const renderSizes = sizes?.map((item, i) => 
 		<li 
 		key={i} 
 		onClick={() => setActiveSize(i)} className={activeSize === i ? "item-pizza__size-item active" : "item-pizza__size-item"}> 
 			{item}
-		</li>)
+		</li>);
+
 	return(				
 		
 			<div data-pizza-type="mt" className="items-pizza__item item-pizza">
-				<a href="" className="item-pizza__image">
+				<Link href="" className="item-pizza__image">
 					<img src={imageUrl} alt={title}/>
-				</a>
+				</Link>
 				<h3 className="item-pizza__title">{title}</h3>
 				<div className="item-pizza__subscribe">{subscribe}</div>
 					<ul className="item-pizza__size">
@@ -29,12 +62,12 @@ const PizzaMenu = ({id, imageUrl, title, subscribe, sizes, price}) => {
 						{price}<sup>$</sup>
 					</div>
 					<div className="pizza-order__total counter">
-						<button className="pizza-order__count count-minus counter-general"><span></span></button>
-						<span className="pizza-order__couter counter-amount">1</span>
-						<button className="pizza-order__count count-plus counter-general "><span></span></button>
+						<button onClick={onClickDecQuntiti} className="pizza-order__count count-minus counter-general"><span></span></button>
+						<span className="pizza-order__couter counter-amount">{quantity} </span>
+						<button onClick={onClickAdd} className="pizza-order__count count-plus counter-general "><span></span></button>
 					</div>
 				</div>
-				<button className="item-pizza__btn btn">Order Now</button>
+				<button onClick={onClickAdd} className="item-pizza__btn btn">Order Now</button>
 			</div>						
 		
 

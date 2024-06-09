@@ -1,3 +1,5 @@
+@use 'sass:math';
+@import '../../scss/mixins';
 .modal {
 	position:fixed;
 	top:-9999px;

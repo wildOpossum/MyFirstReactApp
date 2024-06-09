@@ -1,8 +1,13 @@
 import { NavLink, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import user from '../../assets/icons/user.svg';
 import cart from '../../assets/icons/cart.svg';
 import './header.scss';
 const Header = () => {
+	const {items, totalPrice} = useSelector(state => state.cart);
+	
+	const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
 	const setActive = ({isActive}) => isActive ? 'menu__link active' : 'menu__link'
 	return (
 		<header className="header">
@@ -21,7 +26,7 @@ const Header = () => {
 					<button className="actions__login"><span>Log in</span><img src={user} alt="user"/></button>
 					<Link to="cart" className="actions__cart">
 						<img src={cart} alt="cart" />
-						<span>99</span>
+						{totalCount ? <span>{totalCount}</span> : null}
 					</Link>
 					<button className="icon-menu menu__icon"><span></span></button>			
 				</div>

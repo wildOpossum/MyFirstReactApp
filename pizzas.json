@@ -55,6 +55,7 @@
 		"imageUrl": "/pizza-menu/mushroom.png",
 		"title": "Mushroom",	  
 		"price": 8.35,
+		"sizes": [22, 28, 33],
 		"subscribe": "House made Pizza Sauce, Mozzarella, Italian Ham, Beef Pepperoni, Sautéed Mushrooms & Sautéed Artichokes",
 		"category": "mushrooms",
 		"rating": 4

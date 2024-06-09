@@ -1,10 +1,16 @@
 $font-base: 16;
 
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
 @function rem($currentValue){
 	$result: ($currentValue/$font-base)+rem;
 
 	@return $result
 }
+
 $maxWidth: 1358; 
 $minWidth: 768;
 @mixin adpative($propety, $minValue, $maxValue){

@@ -1,3 +1,5 @@
+@use 'sass:math';
+@import '../../scss/mixins';
 .page-not-found {
 	padding: 9.375rem 6.25rem;
 }

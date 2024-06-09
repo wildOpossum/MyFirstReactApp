@@ -1,3 +1,5 @@
+@use 'sass:math';
+@import '../../scss/mixins';
 .footer {
 	background: linear-gradient(223deg, #170a00 0%, #170600 31.43%, #0f0700 69.37%, #170a00 100%);
 	padding: 50px;
