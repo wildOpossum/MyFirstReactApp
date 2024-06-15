@@ -4,36 +4,45 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { addProduct, decQuantity, removeProduct } from '../../redux/slice/cartSlice';
 
-const PizzaMenu = ({id, imageUrl, title, subscribe, sizes, price, count}) => {	
+const PizzaMenu = ({id, imageUrl, title, subscribe, sizes, price}) => {	
 	const [activeSize, setActiveSize] = useState(0);
 	const dispatch = useDispatch();
-
+	
+	const item = {
+		id,
+		title,
+		price,
+		imageUrl,					
+		size: sizes[activeSize],
+	};
+	const sortQuantiti = useSelector((state) => state.cart.items);
+	
 	const quantity = useSelector((state) => {
 		const similarPizzas = state.cart.items?.filter(
-			(pizza) =>
-			pizza.title === title
-		);		
+			(pizza) => pizza.title === title
+		);				
 		const totalQuantity = similarPizzas?.reduce(
 			(sum, pizza) => sum + pizza.count, 0
 		);
 		return totalQuantity;
 	});	
 		
-	const onClickDecQuntiti = () => {
-		dispatch(decQuantity({id, activeSize, sizes}));
-		if (activeSize === 0){
-			return dispatch(removeProduct({id, activeSize}));
+	const onClickDecQuntiti = () => {		
+		const size = item.size
+		if (activeSize === 0){			
+			dispatch(decQuantity({id, activeSize, size}));
+		}else if (activeSize === 1){			
+			dispatch(decQuantity({id, activeSize, size})); 
+		} else if (activeSize === 2){			
+			dispatch(decQuantity({id, activeSize, size}));
 		}
+
+		if(sortQuantiti[0]?.count < 1) dispatch(removeProduct({id, size}));
+		if(sortQuantiti[1]?.count < 1) dispatch(removeProduct({id, size}));
+		if(sortQuantiti[2]?.count < 1) dispatch(removeProduct({id, size}));
 	}
 
-	const onClickAdd = () => {
-		const item = {
-			id,
-			title,
-			price,
-			imageUrl,			
-			size: sizes[activeSize],
-		};		
+	const onClickAdd = () => {		
 		dispatch(addProduct(item));		
 	};
 

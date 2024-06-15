@@ -14,8 +14,7 @@ const onClickRemove = () => {
 };
 
 const onClickDecQuntiti = () => {
-	dispatch(decQuantity({id, size}));
-	console.log('', size);	
+	dispatch(decQuantity({id, size}));		
 	if(count === 1) dispatch(removeProduct({id, size}));	
 };
 
